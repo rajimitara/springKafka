@@ -19,7 +19,7 @@ import java.util.Map;
 @Configuration
 public class ReceiverConfig {
 
-    @Value("${spring.kafka.bootstrap-servers}")
+  /*  @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Bean
@@ -30,7 +30,8 @@ public class ReceiverConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "foo");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
-        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,"6");
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,"15");
+        props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG,"5000");
 
         return props;
     }
@@ -39,12 +40,7 @@ public class ReceiverConfig {
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
+*/
 
-    @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, String>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
-        return factory;
-    }
 
 }
