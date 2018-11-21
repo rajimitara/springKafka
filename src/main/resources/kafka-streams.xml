@@ -11,10 +11,6 @@
             http://www.springframework.org/schema/task/spring-task-4.0.xsd
             http://www.springframework.org/schema/util
         	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-
-<!--<task:scheduler id="taskScheduler" />
-<task:executor id="taskExecutor" pool-size="1" />
-<task:annotation-driven executor="taskExecutor" scheduler="taskScheduler" />-->
-
     <task:annotation-driven />
+
 </beans>

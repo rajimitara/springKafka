@@ -12,13 +12,8 @@ import org.springframework.context.annotation.ImportResource;
 @ImportResource({"classpath:kafka-streams.xml"})
 public class KafkaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(KafkaApplication.class, args);
-	}
-	/*@Autowired
-	private Sender sender;
+    public static void main(String[] args) {
+        SpringApplication.run(KafkaApplication.class, args);
+    }
 
-	public void run(String... strings) throws Exception {
-		sender.send("Spring Kafka Producer and Consumer Example");
-	}*/
 }
