@@ -1,3 +1,4 @@
+/*
 package com.streaming.kafka.producer;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -15,7 +16,8 @@ import java.util.Map;
 @Configuration
 public class SenderConfig {
 
-    @Value("${spring.kafka.bootstrap-servers}")
+    */
+/*@Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Bean
@@ -35,6 +37,8 @@ public class SenderConfig {
     @Bean
     public KafkaTemplate<String, String> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
-    }
+    }*//*
+
 
 }
+*/

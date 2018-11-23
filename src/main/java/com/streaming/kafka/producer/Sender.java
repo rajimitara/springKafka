@@ -1,22 +1,18 @@
 package com.streaming.kafka.producer;
 
-import com.streaming.kafka.LogManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.streaming.kafka.LogManager1;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.apache.commons.lang3.StringUtils;
 
 @Service
 public class Sender {
 
-    private static final LogManager logger = new LogManager(Sender.class);
+    private static final LogManager1 logger = new LogManager1(Sender.class);
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+   /* @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;*/
 
     @Value("${app.topic.foo}")
     private String topic;
@@ -34,8 +30,19 @@ public class Sender {
         }
         runNumber++;
     }
-    public void send(String message){
+   /* public void send(String message){
         logger.logInfo("sending message='{}' to topic='{}'", message, topic);
         kafkaTemplate.send(topic, message);
+    }*/
+
+    private final KafkaTemplate<String, String> kafkaTemplate;
+
+    Sender(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void send(String message) {
+        this.kafkaTemplate.send(topic, message);
+        System.out.println("Sent sample message [" + message + "] to " + topic);
     }
 }

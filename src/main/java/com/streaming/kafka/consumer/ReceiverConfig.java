@@ -1,3 +1,4 @@
+/*
 package com.streaming.kafka.consumer;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -19,7 +20,8 @@ import java.util.Map;
 @Configuration
 public class ReceiverConfig {
 
-  /*  @Value("${spring.kafka.bootstrap-servers}")
+  */
+/*  @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServers;
 
     @Bean
@@ -40,7 +42,8 @@ public class ReceiverConfig {
     public ConsumerFactory<String, String> consumerFactory() {
         return new DefaultKafkaConsumerFactory<>(consumerConfigs());
     }
-*/
+*//*
 
 
-}
+
+}*/

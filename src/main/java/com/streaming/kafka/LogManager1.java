@@ -5,11 +5,11 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LogManager {
+public class LogManager1 {
 
 final Logger logger;
 	
-	public LogManager(Object obj) {
+	public LogManager1(Object obj) {
 		this.logger = LoggerFactory.getLogger(obj.getClass());
 	}
 
