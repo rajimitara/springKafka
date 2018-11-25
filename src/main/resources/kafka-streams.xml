@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:task="http://www.springframework.org/schema/task" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="
             http://www.springframework.org/schema/beans
@@ -11,5 +12,35 @@
             http://www.springframework.org/schema/task/spring-task-4.0.xsd
             http://www.springframework.org/schema/util
         	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-    <task:annotation-driven />
+    <task:annotation-driven/>
+    <bean id="aadvice" class="com.streaming.kafka.AroundValidationAdvice"/>
+    <bean id="wadvice" class="com.streaming.kafka.WelcomeAdvice"/>
+    <bean id="eadvice" class="com.streaming.kafka.ExceptionHandlerAdvice"/>
+    <bean id="rollback" class="com.streaming.kafka.RollbackIntroduction"/>
+    <bean id="rollbackIntro" class="org.springframework.aop.support.DefaultIntroductionAdvisor">
+        <constructor-arg>
+            <ref bean="rollback"/>
+        </constructor-arg>
+    </bean>
+    <bean id="advisedReceiver"
+          class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="proxyInterfaces">
+            <list>
+                <value>com.streaming.kafka.Advice</value>
+                <value>com.streaming.kafka.KafkaIntro</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>wadvice</value>
+                <value>eadvice</value>
+                <value>aadvice</value>
+                <value>rollbackIntro</value>
+            </list>
+        </property>
+        <property name="target">
+            <ref bean="receiver"/>
+        </property>
+    </bean>
+
 </beans>
