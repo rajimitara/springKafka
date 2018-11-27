@@ -1,11 +1,12 @@
-package com.streaming.kafka.producer;
+package com.paypal.sre.snap.producer;
 
-import com.streaming.kafka.LogManager1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import com.paypal.sre.snap.LogManager1;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -22,19 +23,21 @@ public class Sender {
     @Value("${app.topic.foo}")
     private String topic;
     int runNumber = 0;
+    //Message message;
 
-    @Scheduled(fixedDelay = 100000)
+   /* @Scheduled(fixedDelay = 100000)
     public void runkafka() throws Exception{
 
         System.out.println("Starting runKafka method for runNumber: ["+runNumber+"]");
         System.out.println("Sending messages to Topic : "+dateFormat.format( new Date()));
         for(int i=0;i<15;i++){
+        	
             send( runNumber+ ": Hello world:"+i);
 
             System.out.println("Sent message:"+i);
         }
         runNumber++;
-    }
+    }*/
    /* public void send(String message){
         logger.logInfo("sending message='{}' to topic='{}'", message, topic);
         kafkaTemplate.send(topic, message);

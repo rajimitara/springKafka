@@ -1,4 +1,4 @@
-package com.streaming.kafka;
+package com.paypal.sre.snap;
 
 import java.util.Arrays;
 

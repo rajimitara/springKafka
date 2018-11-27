@@ -12,4 +12,9 @@
             http://www.springframework.org/schema/util
         	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
     <task:annotation-driven />
+    <!-- <bean id="snapReceiver" class="com.streaming.kafka.consumer.Receiver">
+        <property name="snapKafkaConsumer" ref="changeFetcherImpl"/>
+    </bean>
+     -->
+    
 </beans>
