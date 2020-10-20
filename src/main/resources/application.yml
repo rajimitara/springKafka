@@ -1,7 +1,7 @@
 #spring:
  # kafka:
-  #  bootstrap-servers: snapdev-instance-02-5063.ccg21.dev.paypalcorp.com:9092
-    #localhost:9092, ,snapdev-instance-03-5105.ccg21.dev.paypalcorp.com:9092,snapdev-instance-04-4111.ccg21.dev.paypalcorp.com:9092
+  #  bootstrap-servers: abc:9092
+    #localhost:9092, ,abc:9092,abc:9092
 
 #app:
  # topic:
